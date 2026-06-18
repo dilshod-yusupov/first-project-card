@@ -1,24 +1,30 @@
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body {
-    margin: 0;
+
+.products-container  {
+    max-width: 1110px;
+    margin: 0 auto;
     font-family: Montserrat, Roboto, Geneva, Arial, Helvetica, sans-serif;
     color: #515076;
     background-image: url("img/background.png");
-    background-position: center top;
+    background-position: left top;
     background-repeat: no-repeat;
+    background-size: auto;
 }
-h1 {
+.products-title {
     font-size: 70px;
     font-weight: 400;
     line-height: 78px;
     text-align: center;
-    margin-top: 220px;
-    margin-bottom: 110px;
-
+    padding-bottom: 110px;
+    padding-top: 220px;
 }
-.product-list {
+.products-list {
     display: flex;
     flex-wrap: wrap;
     gap: 45px;
@@ -26,12 +32,12 @@ h1 {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 1200px;
 }
-
-.product-item {
+.products-list__item {
     width: 340px;
-    padding: 25px;   
+}
+.card {
+    padding: 25px;
     background: #F7F7FA;
     display: flex;
     flex-direction: column;
@@ -39,66 +45,66 @@ h1 {
     transition: transform 0.3s ease,
     box-shadow 0.3s ease;
 }
-.product-item:hover {
+.card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0,0,0,.15);
 }
-.product-image {
+.card__image {
     display: block; 
     width: 100%;
     height: auto;
-    margin: 0 auto;
+    margin-bottom: 30px;
 }
-
-.product-category {
+.card__category {
     font-weight: 400;
     font-size: 12px;
     color: #A5A3B9;
     text-transform: uppercase;
-    margin-top: 30px;
     margin-bottom: 5px;
 }
-
-.product-title {
+.card__name {
     font-size: 20px;
     line-height: 27px;
     font-weight: 700;
+    margin-bottom: 5px;
 }
-
-.product-description {
+.card__description {
     font-size: 13px;
     line-height: 18px;
     font-weight: 400;
     margin-bottom: 15px;
 }
-.product-ingredients {
-    padding-left: 25px;
+.compound {
+    padding-left: 13px;
     font-size: 13px;
     line-height: 27px;
     font-weight: 400;
 }
-.card-footer {
+.card__compound {
+    margin-bottom: 25px;
+}
+.compound__name {
+    margin-left: -13px;
+}
+.card__footer {
     margin-top: auto;
 }
-
-.price-block {
+.card__price-block {
     display: flex;
     justify-content: space-between;
-    margin-top: 25px;
     font-size: 20px;
+    margin-bottom: 25px;
 }
-
-.product-price {
-    font-weight: 700;
+.card__price-value {
+    font-weight: 400;
 }
-.btn {
+.card__button {
     font: inherit;
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 1px;
     color: #515076;
     padding: 10px;
-    margin-top: 25px;
     border: solid 1px #515076;
     border-radius: 8px;
     background-color: transparent;
@@ -107,30 +113,30 @@ h1 {
                 transform 0.3s ease;
                 
 }
-.btn:hover {
+.card__button:hover {
     background-color: #515076;
     color: #ffffff;
     cursor: pointer;
 }
-.btn:focus {
+.card__button:focus {
     outline: 2px solid #515076;
     outline-offset: 4px;
 }
 /* Планшет */
 @media (max-width: 1024px) {
-    .product-item {
+    .products-list__item {
         width: calc(50% - 23px);
     }
 }
 
 /* Телефон */
 @media (max-width: 768px) {
-    .product-item {
+    .products-list__item {
         width: 100%;
         max-width: 340px;
     }
 
-    h1 {
+    .products-title {
         font-size: 40px;
         line-height: 48px;
         margin-top: 100px;
