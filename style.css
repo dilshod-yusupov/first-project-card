@@ -2,11 +2,11 @@
     box-sizing: border-box;
 }
 body {
+    margin: 0;
     font-family: Montserrat, Roboto, Geneva, Arial, Helvetica, sans-serif;
     color: #515076;
-
-    background-image: url("../img/background.png");
-    background-position: 170px 0px;
+    background-image: url("img/background.png");
+    background-position: center top;
     background-repeat: no-repeat;
 }
 h1 {
@@ -24,12 +24,30 @@ h1 {
     gap: 45px;
     justify-content: center;
     list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
 }
+
 .product-item {
     width: 340px;
     padding: 25px;   
     background: #F7F7FA;
+    display: flex;
+    flex-direction: column;
     box-shadow: 2px 2px 10px #5150761A;
+    transition: transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.product-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+.product-image {
+    display: block; 
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .product-category {
@@ -59,6 +77,9 @@ h1 {
     line-height: 27px;
     font-weight: 400;
 }
+.card-footer {
+    margin-top: auto;
+}
 
 .price-block {
     display: flex;
@@ -69,4 +90,50 @@ h1 {
 
 .product-price {
     font-weight: 700;
+}
+.btn {
+    font: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #515076;
+    padding: 10px;
+    margin-top: 25px;
+    border: solid 1px #515076;
+    border-radius: 8px;
+    background-color: transparent;
+    width: 100%;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+                
+}
+.btn:hover {
+    background-color: #515076;
+    color: #ffffff;
+    cursor: pointer;
+}
+.btn:focus {
+    outline: 2px solid #515076;
+    outline-offset: 4px;
+}
+/* Планшет */
+@media (max-width: 1024px) {
+    .product-item {
+        width: calc(50% - 23px);
+    }
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+    .product-item {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    h1 {
+        font-size: 40px;
+        line-height: 48px;
+        margin-top: 100px;
+        margin-bottom: 60px;
+    }
 }
