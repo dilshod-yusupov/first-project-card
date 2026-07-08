@@ -106,6 +106,7 @@
     letter-spacing: 1px;
     color: #515076;
     padding: 10px;
+    margin-bottom: 10px;
     border: solid 1px #515076;
     border-radius: 8px;
     background-color: transparent;
@@ -123,6 +124,24 @@
     outline: 2px solid #515076;
     outline-offset: 4px;
 }
+
+.style-btn {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #515076;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    border: solid 1px #515076;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.toggle-btn.active {
+    background: blue;
+}
+
 /* Планшет */
 @media (max-width: 1024px) {
     .products-list__item {
