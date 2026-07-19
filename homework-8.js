@@ -22,35 +22,34 @@ const auto = {
     price: 25000,
 };
 
-auto.carOwner = user.name;
+auto.carOwner = user;
 
 console.log(auto)
 
 // Задача №5 Cоздал функцию addMaxSpeed, которая принимает объект auto в качестве аргумента и добавляет в него свойство maxSpeed со значением 200, если оно еще не существует. Затем вызываем функцию addMaxSpeed с объектом auto и выводим обновленный объект в консоль.
 
 function addMaxSpeed(auto) {
-    if (auto.maxSpeed === undefined) {
+    if (!Object.hasOwn(auto, "maxSpeed")) {
         auto.maxSpeed = 200;
     }
-};
+}
 
 addMaxSpeed(auto);
 console.log(auto)
-console.log(`Максимальная скорость автомобиля ${auto.brand} ${auto.model} составляет ${auto.maxSpeed} км/ч.`);
 
 // Задача №6 Создал функцию showPropertyValues, которая принимает объект и ключ в качестве аргументов
 
-function showPropertyValues(obj, key) {
+function showPropertyValue(obj, key) {
     console.log(obj[key]);            
 }
 
-showPropertyValues(auto, 'brand');
+showPropertyValue(auto, 'brand');
 
-// Задача №7 Cоздал массив productName, который содержит названия продуктов, и вывел его в консоль.
+// Задача №7 Cоздал массив productNames, который содержит названия продуктов, и вывел его в консоль.
 
-const productName = ["Хлеб", "Молоко", "Яйца", "Сыр", "Масло"];
+const productNames = ["Хлеб", "Молоко", "Яйца", "Сыр", "Масло"];
 
-console.log(productName);
+console.log(productNames);
 
 // Задача №8 Создал массив movies, который содержит объекты с информацией о фильмах, и вывел его в консоль. Затем добавил новый объект фильма в массив movies и снова вывел его в консоль.
 
@@ -113,7 +112,7 @@ console.log(allMovies);
 
 // Задача №10 Cоздал функцию rareMovies, которая принимает массив allMovies в качестве аргумента и возвращает новый массив.
 
-function rareMovies (allMovies) {
+function rareMovies(allMovies) {
     const updatedMovies = allMovies.map(movie => {
         if (movie.rating < 8) {
             return { ...movie, isRare: true };
