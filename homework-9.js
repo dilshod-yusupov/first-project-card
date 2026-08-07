@@ -30,11 +30,11 @@ console.log(reversedProducts)
 
 // Задача №7 Вывести те коменти чей почта заканчивается на .com
 
-function filterEmailCom(anyArray) {
+function findUsers(anyArray) {
     return anyArray.filter(comments => comments.email.includes('.com'))
 };
 
-const filterEmailCom = filterEmailCom(comments)
+const filterEmailCom = findUsers(comments)
 
 console.log(filterEmailCom)
 
