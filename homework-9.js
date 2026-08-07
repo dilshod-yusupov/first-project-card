@@ -1,9 +1,13 @@
+// Задача №6 Экспорт и импорт массива с коментариями 
+
+import { comments } from "./comment.js";
+
 // Задача №2 Создать массив чисел от 1-10 фильтировать начиная с 5
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-const newNumber = numbers.filter(number => number >= 5);
+const newNumbers = numbers.filter(number => number >= 5);
 
-console.log(newNumber)
+console.log(newNumbers)
 
 // Задача №3 Создать массив строк и проверить через метод .includes()
 
@@ -24,34 +28,30 @@ const reversedProducts = myReverseFunction(products);
 console.log(reversedNumbers)
 console.log(reversedProducts)
 
-// Задача №6 Экспорт и импорт массива с коментариями 
-
-import { comments } from "./comment.js";
-
 // Задача №7 Вывести те коменти чей почта заканчивается на .com
 
-function emailCom(anyArray) {
-    return anyArray.filter(comments => comments.email.endsWith('.com'))
+function filterEmailCom(anyArray) {
+    return anyArray.filter(comments => comments.email.includes('.com'))
 };
 
-const filterEmailCom = emailCom(comments)
+const filterEmailCom = filterEmailCom(comments)
 
 console.log(filterEmailCom)
 
 // Задача №8 Перебрать массив использую ef else 
 
-    const updatedComments = comments.map(comment => {
-    let postId;
-    if (comment.id <= 5) {
-        postId = 2;
-    } else {
-        postId = 1;
-    }
+const updatedComments = comments.map(comment => {
+let postId;
+if (comment.id <= 5) {
+    postId = 2;
+} else {
+    postId = 1;
+}
 
-    return {
-        ...comment,
-        postId: postId
-    };
+return {
+    ...comment,
+    postId: postId
+};
 });
 
 console.log(updatedComments);
@@ -84,12 +84,17 @@ const checkedComments = comments.map(comment => {
 console.log(checkedComments)
 
 // Задача №11 Трансформация массива — извлечение списка всех email-адресов двумя способами: с помощью метода сворачивания .reduce() и через .map().
+const emailsViaReduce = comments.reduce((accumulator, comment) => {
+  accumulator.push(comment.email);
+  return accumulator;
+}, []);
 
+console.log(emailsViaReduce);
 const emailsViaMap = comments.map(comment => comment.email);
 
 console.log(emailsViaMap);
-
-// Задача №12
+console.log(emailsViaReduce);
+// Задача №12 Форматирование данных в строку — объединение элементов полученного массива почт в единую строку с помощью методов .join() и .toString().
 
 const emailsString = emailsViaMap.join(', ');
 
