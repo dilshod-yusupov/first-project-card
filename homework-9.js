@@ -30,29 +30,29 @@ console.log(reversedProducts)
 
 // Задача №7 Вывести те коменти чей почта заканчивается на .com
 
-function findUsers(anyArray) {
+function filterEmails(anyArray) {
     return anyArray.filter(comments => comments.email.includes('.com'))
 };
 
-const filterEmailCom = findUsers(comments)
+const filteredEmailsWithCom = filterEmails(comments)
 
-console.log(filterEmailCom)
+console.log(filteredEmailsWithCom)
 
 // Задача №8 Перебрать массив использую ef else 
 
 const updatedComments = comments.map(comment => {
-let postId;
-if (comment.id <= 5) {
-    postId = 2;
-} else {
-    postId = 1;
-}
+  let postId;
+  if (comment.id <= 5) {
+      postId = 2;
+  } else {
+      postId = 1;
+  }
 
-return {
-    ...comment,
-    postId: postId
-};
-});
+  return {
+      ...comment,
+      postId: postId
+  };
+  });
 
 console.log(updatedComments);
 
