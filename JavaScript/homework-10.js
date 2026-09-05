@@ -10,9 +10,9 @@ const productsList = document.querySelector('.products-list');
 // Задача №4
 
 const productsDescription = products.reduce((acc, product) => {
-  acc[product.cardName] = product.cardDescription
+  acc.push({ [product.cardName]: product.cardDescription })
   return acc
-}, {});
+}, []);
 console.log(productsDescription)
 
 // Задача №5
@@ -37,9 +37,16 @@ function renderProducts(productsArray) {
     productClone.querySelector('.card__category').textContent = product.cardCategory
     productClone.querySelector('.card__name').textContent = product.cardName
     productClone.querySelector('.card__description').textContent = product.cardDescription
-    productClone.querySelectorAll('.compound__list li').forEach((li, index) => {
-      li.textContent = product.compoundList[index]
-    })
+    
+    const compoundListEl = productClone.querySelector('.compound__list')
+    compoundListEl.innerHTML = ''
+
+    product.compoundList.forEach(item => {
+  const li = document.createElement('li')
+  li.textContent = item
+  compoundListEl.append(li)
+})
+
     productClone.querySelector('.card__price-value').textContent =
       `${product.cardPriceValue.toLocaleString('ru-RU')} ₽`
     productsList.append(productClone)
