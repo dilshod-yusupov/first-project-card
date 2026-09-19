@@ -86,84 +86,50 @@
                             <form action="#" class="regist-form">
                                 <label for="first-name">
                                     Имя
-                                    <input
-                                    id="first-name" 
-                                    type="text" 
-                                    placeholder="Имя" 
-                                    required
-                                    >
+                                    <input name="first-name" id="first-name" type="text" placeholder="Имя" required>
                                 </label>
 
                                 <label for="last-name">
                                     Фамилия
-                                    <input
-                                    id="last-name" 
-                                    type="text"
-                                    placeholder="Фамилия"
-                                    required
-                                    >
+                                    <input name="last-name" id="last-name" type="text" placeholder="Фамилия" required>
                                 </label>
 
                                 <label for="birthday">
                                     Дата рождение
-                                    <input 
-                                    id="birthday"
-                                    type="date"
-                                    required
-                                    >
+                                    <input name="birthday" id="birthday" type="date" required>
                                 </label>
 
                                 <label for="login">
                                     Логин
-                                    <input 
-                                    id="login"
-                                    type="text"
-                                    placeholder="Логин"
-                                    required
-                                    >
+                                    <input name="login" id="login" type="text" placeholder="Логин" required>
                                 </label>
 
                                 <label for="password">
                                     Пароль
-                                    <input 
-                                    id="password"
-                                    type="password"
-                                    minlength="6"
-                                    placeholder="Пароль"
-                                    required
-                                    >
+                                    <input name="password" id="password" type="password" minlength="6" placeholder="Пароль" required>
                                 </label>
 
                                 <label for="repeat-password">
                                     Повтор пароля
-                                    <input
-                                    id="repeat-password"
-                                    type="password"
-                                    minlength="6"
-                                    placeholder="Повторите пароль"
-                                    required
-                                    >
+                                    <input name="repeat-password" id="repeat-password" type="password" minlength="6"
+                                        placeholder="Повторите пароль" required>
                                 </label>
 
-                                <input id="regist" type="submit" value="Зарегистрироваться">
+                                <input name="regist" id="regist" type="submit" value="Зарегистрироваться">
 
-                                <input id="reset" type="reset" value="Сбросить">
+                                <input name="reset" id="reset" type="reset" value="Сбросить">
 
                             </form>
                         </div>
-
-
-
                     </div>
                 </div>
 
                 <div class="footer__subscription">
                     <p class="footer__title-form">Подпишись на наши акции:</p>
 
-                    <form class="footer__form form">
+                    <form class="email-form registration-form">
                         <label>
-                            <input class="form__input" placeholder="Введи Email..." name="email" type="email"
-                                type="submit" required>
+                            <input class="form__input" placeholder="Введи Email..." name="email" type="email" required>
                         </label>
 
                         <span class="subscribe-form__divider"></span>
