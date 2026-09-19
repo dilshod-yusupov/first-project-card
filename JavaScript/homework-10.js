@@ -53,5 +53,8 @@ function renderProducts(productsArray) {
   })
 }
 
-const count = getCardsCount()
+// const count = getCardsCount()
+// renderProducts(products.slice(0, count))
+
+const count = 3
 renderProducts(products.slice(0, count))
