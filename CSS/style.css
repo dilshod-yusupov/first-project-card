@@ -1,0 +1,210 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.products-container  {
+    max-width: 1110px;
+    margin: 0 auto;
+    font-family: Montserrat, Roboto, Geneva, Arial, Helvetica, sans-serif;
+    color: #515076;
+    padding-bottom: 5rem;
+    background-image: url("img/Background.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.products-title {
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 78px;
+    text-align: center;
+    padding-bottom: 110px;
+    padding-top: 220px;
+}
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+.products-list__item {
+    width: 340px;
+}
+.card {
+    padding: 25px;
+    background: #F7F7FA;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px #5150761A;
+    transition: transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+.card__image {
+    display: block; 
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.card__category {
+    font-weight: 400;
+    font-size: 12px;
+    color: #A5A3B9;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.card__name {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.card__description {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.compound {
+    padding-left: 13px;
+    font-size: 13px;
+    line-height: 27px;
+    font-weight: 400;
+}
+.card__compound {
+    margin-bottom: 25px;
+}
+.compound__name {
+    margin-left: -13px;
+}
+.card__footer {
+    margin-top: auto;
+}
+.card__price-block {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+.card__price-value {
+    font-weight: 400;
+}
+.card__button {
+    font: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #515076;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #515076;
+    border-radius: 8px;
+    background-color: transparent;
+    width: 100%;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+                
+}
+.card__button:hover {
+    background-color: #515076;
+    color: #ffffff;
+}
+
+.quick-suggestions {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    padding: 20px 24px;
+    background: rgba(247, 247, 250, 0.96);
+    border: 1px solid #d9d9e8;
+    border-radius: 16px;
+    box-shadow: 2px 2px 10px #5150761A;
+}
+
+.quick-suggestions__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 38px;
+    color: #515076;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.quick-suggestions__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 22px;
+    list-style: none;
+}
+
+.quick-suggestions__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #515076;
+    font-size: 14px;
+}
+
+.quick-suggestions__name {
+    font-weight: 700;
+}
+
+.quick-suggestions__meta {
+    color: #a5a3b9;
+    font-size: 12px;
+}
+
+.card__button:focus {
+    outline: 2px solid #515076;
+    outline-offset: 4px;
+}
+
+.style-btn {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #515076;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    border: solid 1px #515076;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.toggle-btn.active {
+    background: blue;
+}
+
+/* Планшет */
+@media (max-width: 1024px) {
+    .products-list__item {
+        width: calc(50% - 23px);
+    }
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+    .products-list__item {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .products-title {
+        font-size: 40px;
+        line-height: 48px;
+        margin-top: 100px;
+        margin-bottom: 60px;
+    }
+}
