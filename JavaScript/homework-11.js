@@ -1,20 +1,24 @@
+import Modal from "./Modal.js";
+import Form from "./Form.js";
+
 // Задача №4
+const emailFormClass = new Form('email-formId')
+const registModal = new Modal('regist-modal');
+const registrationButton = document.querySelector(".regist-button");
+const registrationForm = new Form("regist-form");
 
-const emailForm = document.querySelector(".email-form");
-
-emailForm.addEventListener("submit", (event) => {
+emailFormClass.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (emailForm.checkValidity()) {
-    const form = event.target;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+  if (emailFormClass.isValid()) {
+    
+    const data = emailFormClass.getValues();
     console.log("Email введен верно");
     console.log(data);
 
     alert("Вы успешно подписались!");
 
-    emailForm.reset();
+    emailFormClass.reset();
   } else {
     console.log("Ошибка в email");
   }
@@ -22,31 +26,19 @@ emailForm.addEventListener("submit", (event) => {
 
 // Задача №5
 
-const registrationButton = document.querySelector(".regist-button");
-const modal = document.querySelector(".modal");
-const modalClose = document.querySelector(".modal-close");
-const registrationForm = document.querySelector(".regist-form");
-const overlay = document.querySelector(".overlay");
-
 registrationButton.addEventListener("click", () => {
-  modal.classList.add("modal-showed");
-  overlay.classList.add("overlay-showed");
+  registModal.open();
 });
 
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("modal-showed");
-  overlay.classList.remove("overlay-showed");
-});
 
 let user;
 
-registrationForm.addEventListener("submit", (event) => {
+registrationForm.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const formData = new FormData(registrationForm);
-  const formDataValues = Object.fromEntries(formData);
+emailFormClass.getValues();
 
-  if (!registrationForm.checkValidity()) {
+  if (registrationForm.isValid()) {
     alert("Регистрация отклонена");
     return;
   }
@@ -66,6 +58,5 @@ registrationForm.addEventListener("submit", (event) => {
 
   alert("Вы успешно зарегистрировались");
 
-  modal.classList.remove("modal-showed");
-  overlay.classList.remove("overlay-showed");
+  registModal.close();
 });

@@ -80,10 +80,10 @@
 
                         <div class="overlay"></div>
 
-                        <div class="modal">
+                        <div id="regist-modal" class="regist-modal">
                             <button class="modal-close">×</button>
 
-                            <form action="#" class="regist-form">
+                            <form action="#" id="regist-form" class="regist-form">
                                 <label for="first-name">
                                     Имя
                                     <input name="first-name" id="first-name" type="text" placeholder="Имя" required>
@@ -127,7 +127,7 @@
                 <div class="footer__subscription">
                     <p class="footer__title-form">Подпишись на наши акции:</p>
 
-                    <form class="email-form registration-form">
+                    <form id="email-formId" class="email-form registration-form">
                         <label>
                             <input class="form__input" placeholder="Введи Email..." name="email" type="email" required>
                         </label>
@@ -154,8 +154,7 @@
         </footer>
     </main>
 
-    <script type="module" src="JavaScript/homework-10.js"></script>
-    <script type="module" src="JavaScript/homework-11.js"></script>
+    <script type="module" src="./main.js"></script>
 
 
 </body>
