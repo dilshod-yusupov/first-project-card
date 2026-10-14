@@ -20,11 +20,11 @@ class Iphone extends AppleProducts {
 
      showInfo() {
         super.showInfo();
-        console.log(`Обем памяти ${this.memory}`)
+        console.log(`Объем памяти ${this.memory}`)
      }
 }
 
-const macbook = new AppleProducts('MacBook', 'MacBook Pro M1', 'Sliver', '2000$')
+const macbook = new AppleProducts('MacBook', 'MacBook Pro M1', 'Silver', '2000$')
 macbook.showInfo()
 
 const iphone = new Iphone('iPhone', 'iPhone 11', 'Black', '1000$', '256 GB')

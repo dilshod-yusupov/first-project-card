@@ -36,14 +36,16 @@ let user;
 registrationForm.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
-emailFormClass.getValues();
 
-  if (registrationForm.isValid()) {
+  if (!registrationForm.isValid()) {
     alert("Регистрация отклонена");
     return;
   }
 
-  if (formData.get("password") !== formData.get("repeat-password")) {
+const formDataValues = registrationForm.getValues();
+  
+
+  if (formDataValues["password"] !== formDataValues["repeat-password"]) {
     alert("Пароли не совпадают");
 
     return;
