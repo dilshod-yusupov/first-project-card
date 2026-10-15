@@ -1,14 +1,17 @@
+import Modal from "./Modal.js";
+import Form from "./Form.js";
+
 // Задача №4
+const emailForm = new Form("email-formid");
+const registModal = new Modal("regist-modal");
+const registrationButton = document.querySelector(".regist-button");
+const registrationForm = new Form("regist-form");
 
-const emailForm = document.querySelector(".email-form");
-
-emailForm.addEventListener("submit", (event) => {
+emailForm.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (emailForm.checkValidity()) {
-    const form = event.target;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+  if (emailForm.isValid()) {
+    const data = emailForm.getValues();
     console.log("Email введен верно");
     console.log(data);
 
@@ -22,36 +25,23 @@ emailForm.addEventListener("submit", (event) => {
 
 // Задача №5
 
-const registrationButton = document.querySelector(".regist-button");
-const modal = document.querySelector(".modal");
-const modalClose = document.querySelector(".modal-close");
-const registrationForm = document.querySelector(".regist-form");
-const overlay = document.querySelector(".overlay");
-
 registrationButton.addEventListener("click", () => {
-  modal.classList.add("modal-showed");
-  overlay.classList.add("overlay-showed");
-});
-
-modalClose.addEventListener("click", () => {
-  modal.classList.remove("modal-showed");
-  overlay.classList.remove("overlay-showed");
+  registModal.open();
 });
 
 let user;
 
-registrationForm.addEventListener("submit", (event) => {
+registrationForm.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const formData = new FormData(registrationForm);
-  const formDataValues = Object.fromEntries(formData);
-
-  if (!registrationForm.checkValidity()) {
+  if (!registrationForm.isValid()) {
     alert("Регистрация отклонена");
     return;
   }
 
-  if (formData.get("password") !== formData.get("repeat-password")) {
+  const formDataValues = registrationForm.getValues();
+
+  if (formDataValues.password !== formDataValues.repeatPassword) {
     alert("Пароли не совпадают");
 
     return;
@@ -66,6 +56,5 @@ registrationForm.addEventListener("submit", (event) => {
 
   alert("Вы успешно зарегистрировались");
 
-  modal.classList.remove("modal-showed");
-  overlay.classList.remove("overlay-showed");
+  registModal.close();
 });
