@@ -1,73 +1,73 @@
-// Задача №6 Экспорт и импорт массива с коментариями 
+// Задача №6 Экспорт и импорт массива с коментариями
 
 import { comments } from "./comment.js";
 
 // Задача №2 Создать массив чисел от 1-10 фильтировать начиная с 5
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-const newNumbers = numbers.filter(number => number >= 5);
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const newNumbers = numbers.filter((number) => number >= 5);
 
-console.log(newNumbers)
+console.log(newNumbers);
 
 // Задача №3 Создать массив строк и проверить через метод .includes()
 
-const products = [`Хлеб`,`Молоко`,`Фрукты`,`Мясо`,`Манго`]
-const newProducts = products.includes(`Молоко`)
+const products = [`Хлеб`, `Молоко`, `Фрукты`, `Мясо`, `Манго`];
+const newProducts = products.includes(`Молоко`);
 
-console.log(newProducts)
+console.log(newProducts);
 
 // Задача №4 Разворот 2 полученных массива
 
 function myReverseFunction(anyArray) {
-    return anyArray.toReversed();
-};
+  return anyArray.toReversed();
+}
 
 const reversedNumbers = myReverseFunction(numbers);
 const reversedProducts = myReverseFunction(products);
 
-console.log(reversedNumbers)
-console.log(reversedProducts)
+console.log(reversedNumbers);
+console.log(reversedProducts);
 
 // Задача №7 Вывести те коменти чей почта заканчивается на .com
 
 function filterEmails(anyArray) {
-    return anyArray.filter(comments => comments.email.includes('.com'))
-};
+  return anyArray.filter((comment) => comment.email.endsWith(".com"));
+}
 
-const filteredEmailsWithCom = filterEmails(comments)
+const filteredEmailsWithCom = filterEmails(comments);
 
-console.log(filteredEmailsWithCom)
+console.log(filteredEmailsWithCom);
 
-// Задача №8 Перебрать массив использую ef else 
+// Задача №8 Перебрать массив использую ef else
 
-const updatedComments = comments.map(comment => {
+const updatedComments = comments.map((comment) => {
   let postId;
   if (comment.id <= 5) {
-      postId = 2;
+    postId = 2;
   } else {
-      postId = 1;
+    postId = 1;
   }
 
   return {
-      ...comment,
-      postId: postId
+    ...comment,
+    postId: postId,
   };
-  });
+});
 
 console.log(updatedComments);
 
 // Задача №9 Проекция данных через .map() — формирование нового массива объектов, содержащих только ключи id и name.
 
-const simplifiedComments = comments.map(comment => ({
+const simplifiedComments = comments.map((comment) => ({
   id: comment.id,
-  name: comment.name
+  name: comment.name,
 }));
 
 console.log(simplifiedComments);
 
 // Задача №10 Валидация длины строки — перебор массива через .map() и добавление булевого флага isInvalid (true, если body.length > 180).
 
-const checkedComments = comments.map(comment => {
+const checkedComments = comments.map((comment) => {
   let isInvalid;
 
   if (comment.body.length > 180) {
@@ -78,10 +78,10 @@ const checkedComments = comments.map(comment => {
 
   return {
     ...comment,
-    isInvalid: isInvalid
+    isInvalid: isInvalid,
   };
 });
-console.log(checkedComments)
+console.log(checkedComments);
 
 // Задача №11 Трансформация массива — извлечение списка всех email-адресов двумя способами: с помощью метода сворачивания .reduce() и через .map().
 const emailsViaReduce = comments.reduce((accumulator, comment) => {
@@ -90,12 +90,12 @@ const emailsViaReduce = comments.reduce((accumulator, comment) => {
 }, []);
 
 console.log(emailsViaReduce);
-const emailsViaMap = comments.map(comment => comment.email);
+const emailsViaMap = comments.map((comment) => comment.email);
 
 console.log(emailsViaMap);
 console.log(emailsViaReduce);
 // Задача №12 Форматирование данных в строку — объединение элементов полученного массива почт в единую строку с помощью методов .join() и .toString().
 
-const emailsString = emailsViaMap.join(', ');
+const emailsString = emailsViaMap.join(", ");
 
 console.log(emailsString);
